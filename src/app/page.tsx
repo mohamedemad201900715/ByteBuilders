@@ -2,9 +2,14 @@
 import React, { useState, useEffect } from 'react';
 import { Code2, Terminal, Database, Settings, Server, Box } from 'lucide-react';
 
-const TypewriterText = ({ text }) => {
+// Define the type for the TypewriterText props
+interface TypewriterTextProps {
+  text: string;
+}
+
+const TypewriterText: React.FC<TypewriterTextProps> = ({ text }) => {
   const [displayText, setDisplayText] = useState('');
-  
+
   useEffect(() => {
     let i = 0;
     const timer = setInterval(() => {
@@ -23,7 +28,12 @@ const TypewriterText = ({ text }) => {
   );
 };
 
-const TerminalWindow = ({ children }) => (
+// Define the type for the TerminalWindow props
+interface TerminalWindowProps {
+  children: React.ReactNode;
+}
+
+const TerminalWindow: React.FC<TerminalWindowProps> = ({ children }) => (
   <div className="bg-gray-900 rounded-lg overflow-hidden shadow-xl">
     <div className="flex items-center px-4 py-2 bg-gray-800">
       <div className="flex space-x-2">
